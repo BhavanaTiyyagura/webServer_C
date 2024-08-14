@@ -34,7 +34,7 @@ A basic web server in C that serves files from a specific directory and simulate
 
 2. Type `./server` to run the server.
 
-3. Open your web browser and navigate to http://localhost:8080/ followed by the file name (eg. index.html, Work.html or d20.html).
+3. Open your web browser and navigate to `http://localhost:8080/` followed by the file name (eg. index.html, Work.html or d20.html).
 
 ### 
 
