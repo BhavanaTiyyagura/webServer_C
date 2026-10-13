@@ -1,4 +1,8 @@
 #include "io_helper.h"
+#include <errno.h>
+/* read_line, write_line and read_or_die --- broken pipe*/
+
+
 
 ssize_t readline(int fd, void *buf, size_t maxlen) {
     char c = '\0';
@@ -7,17 +11,26 @@ ssize_t readline(int fd, void *buf, size_t maxlen) {
     
     for (n = 0; n < maxlen - 1; n++) { // leave room at end for '\0'
 	int rc;
-        if ((rc = read_or_die(fd, &c, 1)) == 1) {
+        if ((rc = read_or_kill(fd, &c, 1)) == 1) { //changed read_or_die to read_or_kill
             *bufp++ = c;
             if (c == '\n')
                 break;
-        } else if (rc == 0) {
+        } 
+        
+        else if (rc == 0) {
             if (n == 1)
                 return 0; /* EOF, no data read */
             else
                 break;    /* EOF, some data was read */
-        } else
-            return -1;    /* error */
+        } 
+        else
+            //handle error
+            //return -1;    /* error */
+            
+            if(errno == EPIPE || errno == ECONNRESET){
+                close_or_die(fd);
+                return -1;
+            }
     }
     *bufp = '\0';
     return n;
@@ -80,5 +93,7 @@ int open_listen_fd(int port) {
     }
     return listen_fd;
 }
+
+
 
 

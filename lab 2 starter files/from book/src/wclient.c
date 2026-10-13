@@ -46,10 +46,10 @@ void client_print(int fd) {
     int n;
     
     // Read and display the HTTP Header 
-    n = readline_or_die(fd, buf, MAXBUF);
+    n = readline_or_kill(fd, buf, MAXBUF);
     while (strcmp(buf, "\r\n") && (n > 0)) {
 	printf("Header: %s", buf);
-	n = readline_or_die(fd, buf, MAXBUF);
+	n = readline_or_kill(fd, buf, MAXBUF);
 	
 	// If you want to look for certain HTTP tags... 
 	// int length = 0;
@@ -59,10 +59,10 @@ void client_print(int fd) {
     }
     
     // Read and display the HTTP Body 
-    n = readline_or_die(fd, buf, MAXBUF);
+    n = readline_or_kill(fd, buf, MAXBUF);
     while (n > 0) {
 	printf("%s", buf);
-	n = readline_or_die(fd, buf, MAXBUF);
+	n = readline_or_kill(fd, buf, MAXBUF);
     }
 }
 

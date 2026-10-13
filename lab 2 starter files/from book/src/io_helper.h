@@ -43,9 +43,13 @@ typedef struct sockaddr sockaddr_t;
 #define open_or_die(pathname, flags, mode) \
     ({ int rc = open(pathname, flags, mode); assert(rc >= 0); rc; })
 #define read_or_die(fd, buf, count) \
+    ({ ssize_t rc = read(fd, buf, count); assert(rc >= 0); rc; })
+#define read_or_kill(fd, buf, count) \
     ({ ssize_t rc = read(fd, buf, count); rc; })
 #define write_or_die(fd, buf, count) \
     ({ ssize_t rc = write(fd, buf, count); assert(rc >= 0); rc; })
+#define write_or_kill(fd, buf, count) \
+    ({ ssize_t rc = write(fd, buf, count); rc; }) 
 #define lseek_or_die(fd, offset, whence) \
     ({ off_t rc = lseek(fd, offset, whence); assert(rc >= 0); rc; })
 #define close_or_die(fd) \
@@ -86,6 +90,9 @@ int open_listen_fd(int portno);
 
 // wrappers for above
 #define readline_or_die(fd, buf, maxlen) \
+    ({ ssize_t rc = readline(fd, buf, maxlen); assert(rc >= 0); rc; })
+//read or kill the connection
+#define readline_or_kill(fd, buf, maxlen) \
     ({ ssize_t rc = readline(fd, buf, maxlen); rc; })
 #define open_client_fd_or_die(hostname, port) \
     ({ int rc = open_client_fd(hostname, port); assert(rc >= 0); rc; })

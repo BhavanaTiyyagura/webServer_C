@@ -1,0 +1,18 @@
+5.8709s [Thread Main] Arrived - request: GET /cgi/spin.cgi?3
+5.8709s [Thread 1] Started - request: GET /cgi/spin.cgi?3 (0.0000s waiting)
+5.8709s [Thread Main] Arrived - request: GET /cgi/spin.cgi?3
+5.8709s [Thread 0] Started - request: GET /cgi/spin.cgi?3 (0.0000s waiting)
+8.8883s [Thread 0] Completed - request: GET /cgi/spin.cgi (3.0174s total)
+8.8883s [Thread 1] Completed - request: GET /cgi/spin.cgi (3.0174s total)
+5.8709s [Thread Main] Arrived - request: GET /cgi/spin.cgi?3
+8.8884s [Thread 0] Started - request: GET /cgi/spin.cgi?3 (3.0175s waiting)
+5.8710s [Thread Main] Arrived - request: GET /cgi/spin.cgi?3
+8.8884s [Thread 1] Started - request: GET /cgi/spin.cgi?3 (3.0175s waiting)
+11.9044s [Thread 0] Completed - request: GET /cgi/spin.cgi (6.0335s total)
+11.9045s [Thread 1] Completed - request: GET /cgi/spin.cgi (6.0336s total)
+5.8710s [Thread Main] Arrived - request: GET /cgi/spin.cgi?3
+11.9046s [Thread 0] Started - request: GET /cgi/spin.cgi?3 (6.0337s waiting)
+8.8884s [Thread Main] Arrived - request: GET /cgi/spin.cgi?3
+11.9047s [Thread 1] Started - request: GET /cgi/spin.cgi?3 (3.0162s waiting)
+14.9288s [Thread 0] Completed - request: GET /cgi/spin.cgi (9.0578s total)
+14.9289s [Thread 1] Completed - request: GET /cgi/spin.cgi (6.0404s total)
